@@ -826,7 +826,7 @@ class Mafia extends Rooms.RoomGame {
 			const isSpirit = (this.dead[userid] && this.dead[userid].restless);
 			if (isPlayer || isSpirit) {
 				if (isPlayer && this.playerTable[userid].lynching === key || isSpirit && this.dead[userid].lynching === key) {
-					buf += `<button class="button" name="send" value="/msgroom ${this.roomid},/mafia unlynch">Unlynch ${this.playerTable[key] ? this.playerTable[key].safeName : 'No Lynch'}</button>`;
+					buf += `<button class="button" name="send" value="/mafia unlynch ${this.roomid}">Unlynch ${this.playerTable[key] ? this.playerTable[key].safeName : 'No Lynch'}</button>`;
 				} else if ((this.selfEnabled && !isSpirit) || userid !== key) {
 					buf += `<button class="button" name="send" value="/msgroom ${this.roomid},/mafia lynch ${key}">Lynch ${this.playerTable[key] ? this.playerTable[key].safeName : 'No Lynch'}</button>`;
 				}
@@ -1769,7 +1769,7 @@ export const pages: PageTable = {
 				if (!pick) {
 					buf += `<button class="button disabled" style="font-weight:bold; color:#575757; font-weight:bold; background-color:#d3d3d3;">clear</button>`;
 				} else {
-					buf += `<button class="button" name="send" value="/msgroom ${room.roomid},/mafia ideapick ${roomid}, ${key},">clear</button>`;
+					buf += `<button class="button" name="send" value="/mafia ideapick ${roomid}, ${key},">clear</button>`;
 				}
 				const selectedIndex = pick ? IDEA.originalChoices.indexOf(pick) : -1;
 				for (let i = 0; i < IDEA.originalChoices.length; i++) {
@@ -1777,7 +1777,7 @@ export const pages: PageTable = {
 					if (i === selectedIndex) {
 						buf += `<button class="button disabled" style="font-weight:bold; color:#575757; font-weight:bold; background-color:#d3d3d3;">${choice}</button>`;
 					} else {
-						buf += `<button class="button" name="send" value="/msgroom ${room.roomid},/mafia ideapick ${roomid}, ${key}, ${toID(choice)}">${choice}</button>`;
+						buf += `<button class="button" name="send" value="/mafia ideapick ${roomid}, ${key}, ${toID(choice)}">${choice}</button>`;
 					}
 				}
 				buf += `<br />`;
@@ -2936,7 +2936,7 @@ export const commands: ChatCommands = {
 			room = this.requireRoom();
 			const game = this.requireGame(Mafia);
 			const args = target.split(',');
-			const action = toID(args.shift());
+			const action = toID(args[0]);
 			switch (action) {
 			case 'in':
 				if (user.id in game.playerTable) {

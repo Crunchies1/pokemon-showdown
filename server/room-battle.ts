@@ -1217,6 +1217,7 @@ if (!PM.isParentProcess) {
 			const repr = JSON.stringify([error.name, error.message, source, details]);
 			process.send!(`THROW\n@!!@${repr}\n${error.stack}`);
 		},
+		slow() {}
 	};
 	global.__version = {head: ''};
 	try {
