@@ -19636,6 +19636,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	soulsuck: {
+		desc: "Restores HP amounting to 33% of damage dealt.",
+		shortDesc: "Restores HP amounting to 33% of damage dealt.",
 		num: 100000,
 		accuracy: 100,
 		basePower: 110,
@@ -19651,6 +19653,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	fierydarts: {
+		desc: "Hits 2-5 times. 10% chance to burn on each hit.",
+		shortDesc: "Hits 2-5 times. 10% chance to burn on each hit.",
 		num: 100001,
 		accuracy: 95,
 		basePower: 25,

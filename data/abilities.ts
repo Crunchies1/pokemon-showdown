@@ -4435,6 +4435,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1001,
 	},
 	aptitude: {
+		desc: "This pokemon changes into the type of the move it uses, plus Grass.",
+		shortDesc: "Changes into the type of move it uses, plus Grass.",
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced || move.sourceEffect === 'snatch') return;
 			var types = [move.type, 'Grass'];
@@ -4451,6 +4453,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1002,
 	},
 	flytrap: {
+		desc: "Opposing Bug types cannot switch out.",
+		shortDesc: "Traps Bug types.",
 		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hasType('Bug') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
@@ -4468,6 +4472,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1004,
 	},
 	soultrap: {
+		desc: "Absorbs ghost moves and raises Special Attack by 1.",
+		shortDesc: "Absorbs ghost moves and raises SpA by 1.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ghost') {
 				if (!this.boost({spa: 1})) {
@@ -4492,6 +4498,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1003,
 	},
 	angrymode: {
+		desc: "If Primeape, switch to Primeape-Angry at the end of the turn, vice versa.",
+		shortDesc: "Switches form at the end of each turn.",
 		onResidual(pokemon) {
 			if (pokemon.species.baseSpecies !== 'Primeape' || pokemon.transformed) return;
 			const targetForme = pokemon.species.name === 'Primeape' ? 'Primeape-Angry' : 'Primeape';
