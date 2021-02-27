@@ -10,7 +10,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("calyrex", ["blueflare", "earthpower", "moonblast", "willowisp", "hex", "recover"]);
 		newMoves("carnivine", ["firelash", "coil", "snaptrap", "grassyglide", "venomdrench", "willowisp"]);
 		newMoves("lumineon", ["lightofruin", "dazzlinggleam", "tailglow", "flipturn", "hydropump"]);
-		newMoves("primeape", ["flamethrower", "leafblade", "woodhammer", "leafstorm", "flareblitz", "explosion", "nastyplot"]);
+		newMoves("primeape", ["flamethrower", "grassyglide", "leafstorm", "flareblitz", "explosion", "nastyplot"]);
 		newMoves("spiritomb", ["soulsuck"]);
 		newMoves("turtonator", ["fierydarts", "spikes", "explosion"]);
 	},

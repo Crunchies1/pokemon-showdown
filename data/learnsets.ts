@@ -7770,6 +7770,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	primeape: {
 		learnset: {
+			//Modded moves list start
+			flareblitz: ["7M", "6M"], flamethrower: ["8T", "7T"], 
+			nastyplot: ["8T", "7T"], grassyglide: ["8T", "7T"], 
+			leafstorm: ["8T", "7T"], explosion: ["8T", "7T"],
+			//Modded moves end
 			acrobatics: ["7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			assurance: ["7L26", "6L25", "5L25", "4L25"],
@@ -20051,6 +20056,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	articuno: {
 		learnset: {
+			//Modded moves list start
+			earthpower: ["8M", "7M", "6M"],
+			//Modded moves end
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			agility: ["8M", "8L20", "8V", "7L36", "7V", "6L36", "5L36", "4L36", "4S3", "4S4", "3L25", "3S0", "3S1"],
 			aircutter: ["4T"],
@@ -45402,6 +45410,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	spiritomb: {
 		learnset: {
+			//Modded moves list start
+			soulsuck: ["8M", "7M", "6M"],
+			//Modded moves end
 			allyswitch: ["8M", "7T"],
 			attract: ["8M", "7M", "6M", "5M", "4M"],
 			burningjealousy: ["8T"],
@@ -46464,6 +46475,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	carnivine: {
 		learnset: {
+			//Modded moves list start
+			coil: ["7M", "6M"], firelash: ["8T", "7T"], 
+			snaptrap: ["8T", "7T"], grassyglide: ["8T", "7T"], 
+			venomdrench: ["8T", "7T"], willowisp: ["8T", "7T"],
+			//Modded moves end
 			acidspray: ["7E"],
 			attract: ["7M", "6M", "5M", "4M"],
 			bind: ["7T", "7L1", "6T", "6L1", "5T", "5L1", "4L1"],
@@ -46602,6 +46618,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	lumineon: {
 		learnset: {
+			//Modded moves list start
+			lightofruin: ["7M", "6M"], tailglow: ["8T", "7T"], 
+			hydropump: ["8T", "7T"], dazzlinggleam: ["8T", "7T"], 
+			flipturn: ["8T", "7T"],
+			//Modded moves end
 			aircutter: ["4T"],
 			aquaring: ["7L35", "6L35", "5L35", "4L35"],
 			aquatail: ["7T", "6T", "5T", "4T"],
@@ -70207,6 +70228,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	turtonator: {
 		learnset: {
+			//Modded moves list start
+			fierydarts: ["8M", "7M", "6M"],
+			spikes: ["8M", "7M", "6M"],
+			//Modded moves end
 			attract: ["8M", "7M"],
 			block: ["7T"],
 			bodypress: ["8M"],
@@ -77374,6 +77399,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	calyrex: {
 		learnset: {
+			//Modded moves list start
+			blueflare: ["7M", "6M"], earthpower: ["8T", "7T"], 
+			moonblast: ["8T", "7T"], recover: ["8T", "7T"], 
+			hex: ["8T", "7T"], willowisp: ["8T", "7T"],
+			//Modded moves end
 			agility: ["8M"],
 			allyswitch: ["8M"],
 			aromatherapy: ["8L40"],
