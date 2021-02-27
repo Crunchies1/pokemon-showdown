@@ -50,6 +50,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 50, def: 60, spa: 95, spd: 75, spe: 121},
 		abilities: {0: "Color Change"},
 	},
+	ninetales: {
+		inherit: true,
+		types: ["Fire", "Psychic"],
+		baseStats: {hp: 72, atk: 72, def: 72, spa: 135, spd: 108, spe: 108},
+		abilities: {0: "Flash Fire", H: "Drought"},
+	},
 	primeape: {
 		inherit: true,
 		name: "Primeape",

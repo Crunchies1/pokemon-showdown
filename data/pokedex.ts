@@ -7852,9 +7852,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	carnivine: {
 		num: 455,
 		name: "Carnivine",
-		types: ["Grass"],
-		baseStats: {hp: 74, atk: 100, def: 72, spa: 90, spd: 72, spe: 46},
-		abilities: {0: "Levitate"},
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 94, atk: 100, def: 102, spa: 90, spd: 72, spe: 66},
+		abilities: {0: "Levitate", H: "Fly Trap"},
 		heightm: 1.4,
 		weightkg: 27,
 		color: "Green",
