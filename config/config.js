@@ -3,7 +3,8 @@
 /**
  * The server port - the port to run Pokemon Showdown under
  */
-exports.port = process.env.PORT;
+exports.port = 8000;
+exports.serverid = 'crunchyleague';
 
 /**
  * The server address - the address at which Pokemon Showdown should be hosting
