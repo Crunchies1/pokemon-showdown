@@ -680,7 +680,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('deltastream');
 		},
 		onAnySetWeather(target, source, weather) {
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'subzero'];
 			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
@@ -703,7 +703,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('desolateland');
 		},
 		onAnySetWeather(target, source, weather) {
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'subzero'];
 			if (this.field.getWeather().id === 'desolateland' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
@@ -1091,6 +1091,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
+			case 'subzero':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			default:
@@ -2732,7 +2733,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('primordialsea');
 		},
 		onAnySetWeather(target, source, weather) {
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'subzero'];
 			if (this.field.getWeather().id === 'primordialsea' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
@@ -4568,5 +4569,28 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Night Stalker",
 		rating: 3,
 		num: -1010,
+	},
+	subzero: {
+		onStart(source) {
+			this.field.setWeather('subzero');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'subzero'];
+			if (this.field.getWeather().id === 'subzero' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('subzero')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Subzero",
+		rating: 5,
+		num: -1011,
 	},
 };

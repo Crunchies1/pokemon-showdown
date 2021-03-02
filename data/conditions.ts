@@ -923,4 +923,36 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', `The radiation has been absorbed!`);
 		},
 	},
+	subzero: {
+		name: 'Subzero',
+		effectType: 'Weather',
+		duration: 0,
+		onTryMovePriority: 1,
+		onTryMove(attacker, defender, move) {
+			if (move.type !== 'Nuclear' || move.category !== 'Status') {
+				move.type = 'Ice';
+				this.add('-message', `The attack freezes up!`);
+				return false;
+			}
+		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-weather', 'Subzero', '[from] ability: ' + effect, '[of] ' + source);
+			} else {
+				this.add('-weather', 'Subzero');
+			}
+		},
+		onResidualOrder: 1,
+		onResidual() {
+			this.add('-weather', 'Subzero', '[upkeep]');
+			if (this.field.isWeather('subzero')) this.eachEvent('Weather');
+		},
+		onWeather(target) {
+			this.damage(target.baseMaxhp / 16);
+		},
+		onEnd() {
+			this.add('-weather', 'none');
+		},
+	},
 };
