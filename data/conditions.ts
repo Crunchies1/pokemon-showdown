@@ -873,7 +873,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// So we give it increased priority.
 		onModifySpePriority: 10,
 		onModifySpe(spe, pokemon) {
-			if (!(pokemon.hasType('Flying') || !pokemon.hasType('Dragon'))&& this.field.isWeather('fog')) {
+			if (!(pokemon.hasType('Flying') || pokemon.hasType('Dragon')) && this.field.isWeather('fog')) {
 				return this.modify(spe, 0.67);
 			}
 		},
