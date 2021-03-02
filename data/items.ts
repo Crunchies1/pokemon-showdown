@@ -2839,7 +2839,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return;
-			this.heal(pokemon.baseMaxhp / 16);
+			if (this.field.isWeather('radiation')) {
+				this.add('-message', `The food is radioactive!`);
+				this.damage(pokemon.baseMaxhp / 16);
+			} else {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
 		},
 		onTerrain(pokemon) {
 			if (!this.field.isTerrain('grassyterrain')) return;

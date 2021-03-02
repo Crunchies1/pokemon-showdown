@@ -889,12 +889,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 	radiation: {
 		name: 'Radiation',
 		effectType: 'Weather',
-		duration: 4,
+		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('tr03')) {
-				return 6;
+				return 8;
 			}
-			return 4;
+			return 5;
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
@@ -912,7 +912,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('radiation')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.damage(target.baseMaxhp / 10);
+			this.damage(target.baseMaxhp / 8);
+		},
+		onEatItem(item, pokemon) {
+			this.add('-message', `The food is radioactive!`);
+			this.damage(pokemon.baseMaxhp / 4);
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');

@@ -4530,10 +4530,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1007,
 	},
 	radioactive: {
-		desc: "On switch-in, this Pokémon summons Radiation for 4 turns.",
-		shortDesc: "4 turns: Damages all pokemon for 1/10 hp.",
+		desc: "On switch-in, this Pokémon summons Radiation for 5 turns.",
+		shortDesc: "5 turns: Damages all pokemon for 1/8 hp.",
 		onStart(source) {
 			this.field.setWeather('radiation');
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'radiation') return false;
 		},
 		name: "Radioactive",
 		rating: 3,
