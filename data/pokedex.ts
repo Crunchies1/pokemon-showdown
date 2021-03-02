@@ -1145,9 +1145,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	vileplume: {
 		num: 45,
 		name: "Vileplume",
-		types: ["Grass", "Poison"],
+		types: ["Nuclear", "Poison"],
 		baseStats: {hp: 75, atk: 80, def: 85, spa: 110, spd: 90, spe: 50},
-		abilities: {0: "Chlorophyll", H: "Effect Spore"},
+		abilities: {0: "Radiation Rush", H: "Effect Spore"},
 		heightm: 1.2,
 		weightkg: 18.6,
 		color: "Red",
@@ -7819,7 +7819,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	skorupi: {
 		num: 451,
 		name: "Skorupi",
-		types: ["Poison", "Bug"],
+		types: ["Nuclear", "Bug"],
 		baseStats: {hp: 40, atk: 50, def: 90, spa: 30, spd: 55, spe: 65},
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Keen Eye"},
 		heightm: 0.8,
@@ -7831,9 +7831,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	drapion: {
 		num: 452,
 		name: "Drapion",
-		types: ["Poison", "Dark"],
+		types: ["Nuclear", "Dark"],
 		baseStats: {hp: 70, atk: 90, def: 110, spa: 60, spd: 75, spe: 95},
-		abilities: {0: "Battle Armor", 1: "Sniper", H: "Keen Eye"},
+		abilities: {0: "Battle Armor", 1: "Sniper", H: "Night Stalker"},
 		heightm: 1.3,
 		weightkg: 61.5,
 		color: "Purple",

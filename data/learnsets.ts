@@ -6090,6 +6090,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	vileplume: {
 		learnset: {
+			//Modded moves list start
+			radiationburst: ["7M", "6M"], radiationbeam: ["8T", "7T"], 
+			nuclearbreath: ["8T", "7T"], radioactivedecayalpha: ["8T", "7T"],
+			radioactivedecaybeta: ["8T", "7T"],
+			//Modded moves end
 			absorb: ["8L1", "8V", "7V", "3L1"],
 			acid: ["8L1", "8V", "7V"],
 			afteryou: ["7T", "6T", "5T"],
@@ -25697,7 +25702,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			//Modded moves list start
 			radiationburst: ["7M", "6M"], radiationbeam: ["8T", "7T"], 
-			nuclearbreath: ["8T", "7T"],
+			nuclearbreath: ["8T", "7T"], radioactivedecayalpha: ["8T", "7T"],
+			radioactivedecaybeta: ["8T", "7T"],  falloutslam: ["8T", "7T"],
 			//Modded moves end
 			agility: ["8M", "7E", "6E", "5E", "4E"],
 			airslash: ["8M", "7L41"],
@@ -46168,6 +46174,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	drapion: {
 		learnset: {
+			//Modded moves list start
+			nuclearbreath: ["8T", "7T"], radioactivedecayalpha: ["8T", "7T"],
+			radioactivedecaybeta: ["8T", "7T"],  falloutslam: ["8T", "7T"],
+			//Modded moves end
 			acupressure: ["8L49", "7L13", "6L13", "5L17", "4L17"],
 			aerialace: ["7M", "6M", "5M", "4M"],
 			agility: ["8M"],

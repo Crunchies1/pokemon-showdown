@@ -19681,7 +19681,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Nuclear Breath",
 		pp: 5,
 		priority: 0,
@@ -19709,7 +19708,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 180,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Radiation Burst",
 		pp: 5,
 		priority: 0,
@@ -19740,8 +19738,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	radiationbeam: {
-		desc: "Hits twice, once in one turn, and once in two turns. Will burn or poison enemy on use.",
-		shortDesc: "Hits twice, once in one turn, and once in two turns. Will burn or poison enemy on use.",
+		desc: "Hits in two turns. Will burn or poison enemy on hit.",
+		shortDesc: "Hits in two turns. Will burn or poison enemy on hit.",
 		num: 100004,
 		accuracy: 100,
 		basePower: 120,
@@ -19754,24 +19752,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		isFutureMove: true,
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 2,
-				move: 'radiationbeam',
-				source: source,
-				moveData: {
-					id: 'radiationbeam',
-					name: "Radiation Beam",
-					accuracy: 100,
-					basePower: 120,
-					category: "Special",
-					priority: 0,
-					flags: {},
-					ignoreImmunity: false,
-					effectType: 'Move',
-					isFutureMove: true,
-					type: 'Nuclear',
-				},
-			}),
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
 				move: 'radiationbeam',
@@ -19789,7 +19769,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					isFutureMove: true,
 					type: 'Nuclear',
 				},
-			});
+			}),
 			this.add('-start', source, 'move: Radiation Beam');
 			return this.NOT_FAIL;
 		},
@@ -19807,5 +19787,112 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Clever",
+	},
+	falloutslam: {
+		desc: "Lowers stats. 20% recoil. Will burn or poison enemy on hit. Enemy -1 Def.",
+		shortDesc: "Lowers stats. 20% recoil. Will burn or poison enemy on hit. Enemy -1 Def.",
+		num: 100005,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Fallout Slam",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -1,
+				def: -1,
+				spd: -1,
+				spa: -1,
+				atk: -1,
+			},
+		},
+		recoil: [1, 5],
+		ignoreImmunity: true,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+			onHit(target, source) {
+				const result = this.random(2);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Clever",
+	},
+	radioactivedecayalpha: {
+		desc: "100% chance to either burn or poison the target, lose 40% HP. Rock/Steel immune.",
+		shortDesc: "100% chance to either burn or poison the target, lose 40% HP. Rock/Steel immune.",
+		num: 100007,
+		accuracy: 100,
+		basePower: 200,
+		category: "Special",
+		name: "Radioactive Decay - Alpha",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp * 2 / 5), pokemon, pokemon, this.dex.getEffect('Radioactive Decay - Alpha'), true);
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if ((type === 'Steel') || (type === 'Rock')) return 3;
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				const result = this.random(2);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Beautiful",
+	},
+	radioactivedecaybeta: {
+		desc: "30% chance to either burn or poison the target, lose 25% HP.",
+		shortDesc: "30% chance to either burn or poison the target, lose 25% HP.",
+		num: 100008,
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		name: "Radioactive Decay - Beta",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp / 4), pokemon, pokemon, this.dex.getEffect('Radioactive Decay - Beta'), true);
+			}
+		},
+		secondary: {
+			chance: 30,
+			onHit(target, source) {
+				const result = this.random(2);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Beautiful",
 	},
 };

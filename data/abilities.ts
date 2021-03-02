@@ -4542,4 +4542,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -1008,
 	},
+	radiorush: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('radiation')) {
+				return this.chainModify(2);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'radiation') return false;
+		},
+		name: "Radiation Rush",
+		rating: 3,
+		num: -1009,
+	},
+	nightstalker: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('darkness')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Night Stalker",
+		rating: 3,
+		num: -1009,
+	},
 };
