@@ -775,7 +775,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1},
 		sideCondition: 'auroraveil',
 		onTry() {
-			return this.field.isWeather('hail');
+			return (this.field.isWeather('hail') || this.field.isWeather('subzero'));
 		},
 		condition: {
 			duration: 5,
@@ -1327,7 +1327,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move) {
-			if (this.field.isWeather('hail')) move.accuracy = true;
+			if (this.field.isWeather('hail') || this.field.isWeather('subzero')) move.accuracy = true;
 		},
 		secondary: {
 			chance: 10,
@@ -19156,7 +19156,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.type = 'Rock';
 				break;
 			case 'hail':
+			case 'subzero':
 				move.type = 'Ice';
+			case 'darkness':
+				move.type = 'Dark';
+			case 'acidrain':
+				move.type = 'Poison';
+			case 'radiation':
+				move.type = 'Nuclear';
+			case 'fog':
+				move.type = 'Flying';
 				break;
 			}
 		},
@@ -19174,6 +19183,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.basePower *= 2;
 				break;
 			case 'hail':
+			case 'subzero':
+			case 'darkness':
+			case 'acidrain':
+			case 'radiation':
+			case 'fog':
 				move.basePower *= 2;
 				break;
 			}
