@@ -932,7 +932,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (move.type !== 'Nuclear' || move.category !== 'Status') {
 				move.type = 'Ice';
 				this.add('-message', `The attack freezes up!`);
-				return false;
+				return;
 			}
 		},
 		onStart(battle, source, effect) {
