@@ -278,6 +278,32 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		end: "  The rain stopped.",
 		upkeep: "  (Rain continues to fall.)",
 	},
+	acidrain: {
+		weatherName: "Acid Rain",
+		start: "  It started to rain acid!",
+		end: "  The acid rain stopped.",
+		upkeep: "  (Acid Rain continues to fall.)",
+		damage: "  [POKEMON] is getting hurt by the acid rain!",
+	},
+	darkness: {
+		weatherName: "Darkness",
+		start: "  Darkness settles on the battlefield!",
+		end: "  The darkness leaves.",
+		upkeep: "  (Darkness is constricting!)",
+	},
+	fog: {
+		weatherName: "Fog",
+		start: "  The fog settles in!",
+		end: "  The fog blows away.",
+		upkeep: "  (Fog continues to blow in.)",
+	},
+	radiation: {
+		weatherName: "Radiation",
+		start: "  The field becomes radioactive!",
+		end: "  The radioactivity has been absorbed by the surroundings.",
+		upkeep: "  (Radiation is high!)",
+		damage: "  [POKEMON] is being burnt by the radiation!",
+	},
 	hail: {
 		weatherName: "Hail",
 		start: "  It started to hail!",
@@ -306,7 +332,12 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		activate: "  The mysterious strong winds weakened the attack!",
 		block: "  The mysterious strong winds blow on regardless!",
 	},
-
+	subzero: {
+		weatherName: "Subzero",
+		start: "  The temperature drops sharply!",
+		end: "  The temperature goes back to normal.",
+		damage: "  [POKEMON] is freezing!",
+	},
 	// terrain
 	electricterrain: {
 		start: "  An electric current ran across the battlefield!",

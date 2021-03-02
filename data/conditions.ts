@@ -850,6 +850,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	fog: {
+		desc: "All non-Flying and non-Dragon pokemon have 0.67x speed.",
 		name: 'Fog',
 		effectType: 'Weather',
 		duration: 5,
@@ -887,6 +888,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	radiation: {
+		desc: "1/12 HP dmg to all non-Nuclear pokemon. Leftovers deal 1/16 HP dmg and berries deal 1/4 HP dmg.",
 		name: 'Radiation',
 		effectType: 'Weather',
 		duration: 5,
@@ -924,12 +926,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	subzero: {
+		desc: "1/16 HP dmg to all non-Ice pokemon at the end of each turn. All non-Ground and non-Flying moves turn ice.",
 		name: 'Subzero',
 		effectType: 'Weather',
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
-			if (move.type !== 'Nuclear' || move.category !== 'Status') {
+			if ((move.type !== 'Ground' && move.type !== 'Flying') || move.category !== 'Status') {
 				move.type = 'Ice';
 				this.add('-message', `The attack freezes up!`);
 				return;

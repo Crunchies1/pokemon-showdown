@@ -4571,6 +4571,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1010,
 	},
 	subzero: {
+		desc: "On switch-in, this Pokémon summons Subzero until it leaves the battlefield",
+		shortDesc: "1/16 HP dmg to all non Ice. All non Ground and Flying moves turn into Ice.",
 		onStart(source) {
 			this.field.setWeather('subzero');
 		},
