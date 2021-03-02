@@ -4509,4 +4509,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: -1005,
 	},
+	aciddrizzle: {
+		desc: "On switch-in, this Pokémon summons Acid Rain for 5 turns.",
+		shortDesc: "5 turns: Weakens Fairy moves, boosts Poison moves. Damages non Poison and Steel.",
+		onStart(source) {
+			this.field.setWeather('acidrain');
+		},
+		name: "Acid Drizzle",
+		rating: 3,
+		num: -1006,
+	},
+	fogger: {
+		desc: "On switch-in, this Pokémon summons Fog for 5 turns.",
+		shortDesc: "5 turns: 0.67x speed to non Flying and Dragon.",
+		onStart(source) {
+			this.field.setWeather('fog');
+		},
+		name: "Fogger",
+		rating: 3,
+		num: -1007,
+	},
+	radioactive: {
+		desc: "On switch-in, this Pokémon summons Radiation for 4 turns.",
+		shortDesc: "4 turns: Damages all pokemon for 1/10 hp.",
+		onStart(source) {
+			this.field.setWeather('radiation');
+		},
+		name: "Radioactive",
+		rating: 3,
+		num: -1008,
+	},
 };

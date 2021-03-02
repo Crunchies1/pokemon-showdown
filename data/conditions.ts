@@ -801,4 +801,122 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', `The darkness fades away!`);
 		},
 	},
+	acidrain: {
+		name: 'Acid Rain',
+		effectType: 'Weather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('tr01')) {
+				return 8;
+			}
+			return 5;
+		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-ability', source, 'Acid Rain');
+				this.add('-weather', 'Acid Rain', '[silent]');
+				this.add('-message', `Acid Rain pours down on the battlefield!`);
+			} else {
+				this.add('-weather', 'Acid Rain', '[silent]');
+			}
+		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
+			if (move.type === 'Poison') {
+				this.debug('Poisonous fumes spread further!');
+				return this.chainModify(1.3);
+			}
+			if (move.type === 'Fairy') {
+				this.debug('Fairies are weak to poison!');
+				return this.chainModify(0.7);
+			}
+		},
+		onResidualOrder: 1,
+		onResidual() {
+			this.add('-weather', 'Acid Rain', '[upkeep]');
+			if (this.field.isWeather('Acid Rain')) this.eachEvent('Weather');
+		},
+		onWeather(target) {
+			if (target.hasItem('utilityumbrella')) { 
+				this.damage(0);
+			} else {
+				this.damage(target.baseMaxhp / 16);
+			}
+		},
+		onEnd() {
+			this.add('-weather', 'none', '[silent]');
+			this.add('-message', `The rain stops!`);
+		},
+	},
+	fog: {
+		name: 'Fog',
+		effectType: 'Weather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('tr02')) {
+				return 8;
+			}
+			return 5;
+		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-ability', source, 'Fog');
+				this.add('-weather', 'Fog', '[silent]');
+				this.add('-message', `Fog settles down on the battlefield!`);
+			} else {
+				this.add('-weather', 'Fog', '[silent]');
+			}
+		},
+		// This should be applied directly to the stat before any of the other modifiers are chained
+		// So we give it increased priority.
+		onModifySpePriority: 10,
+		onModifySpe(spe, pokemon) {
+			if (!(pokemon.hasType('Flying') || !pokemon.hasType('Dragon'))&& this.field.isWeather('fog')) {
+				return this.modify(spe, 0.67);
+			}
+		},
+		onResidual() {
+			this.add('-weather', 'Fog', '[upkeep]');
+			this.add('-message', `The fog blows on!`);
+		},
+		onEnd() {
+			this.add('-weather', 'none', '[silent]');
+			this.add('-message', `The fog leaves!`);
+		},
+	},
+	radiation: {
+		name: 'Radiation',
+		effectType: 'Weather',
+		duration: 4,
+		durationCallback(source, effect) {
+			if (source?.hasItem('tr03')) {
+				return 6;
+			}
+			return 4;
+		},
+		onStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectData.duration = 0;
+				this.add('-ability', source, 'Radiation');
+				this.add('-weather', 'Radiation', '[silent]');
+				this.add('-message', `Radiation breaks out!`);
+			} else {
+				this.add('-weather', 'Radiation', '[silent]');
+			}
+		},
+		onResidualOrder: 1,
+		onResidual() {
+			this.add('-weather', 'Radiation', '[upkeep]');
+			if (this.field.isWeather('radiation')) this.eachEvent('Weather');
+		},
+		onWeather(target) {
+			this.damage(target.baseMaxhp / 10);
+		},
+		onEnd() {
+			this.add('-weather', 'none', '[silent]');
+			this.add('-message', `The radiation has been absorbed!`);
+		},
+	},
 };
