@@ -19674,4 +19674,132 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
 	},
+	nuclearbreath: {
+		num: 617,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Nuclear Breath",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 3],
+		secondary: {
+			chance: 30,
+			onHit(target, source) {
+				const result = this.random(2);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Beautiful",
+	},
+	radiationburst: {
+		num: 617,
+		accuracy: 100,
+		basePower: 180,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Radiation Burst",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -1,
+				def: -1,
+				spd: -1,
+				atk: -1,
+				spa: -1,
+			},
+		},
+		recoil: [1, 4],
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				const result = this.random(2);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Beautiful",
+	},
+	radiationbeam: {
+		num: 248,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Radiation Beam",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		ignoreImmunity: true,
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 2,
+				move: 'radiationbeam',
+				source: source,
+				moveData: {
+					id: 'radiationbeam',
+					name: "Radiation Beam",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Nuclear',
+				},
+			}),
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'radiationbeam',
+				source: source,
+				moveData: {
+					id: 'radiationbeam',
+					name: "Radiation Beam",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Nuclear',
+				},
+			});
+			this.add('-start', source, 'move: Radiation Beam');
+			return this.NOT_FAIL;
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('psn', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Clever",
+	},
 };

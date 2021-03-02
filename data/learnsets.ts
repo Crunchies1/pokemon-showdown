@@ -25695,6 +25695,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	dunsparce: {
 		learnset: {
+			//Modded moves list start
+			radiationburst: ["7M", "6M"], radiationbeam: ["8T", "7T"], 
+			nuclearbreath: ["8T", "7T"],
+			//Modded moves end
 			agility: ["8M", "7E", "6E", "5E", "4E"],
 			airslash: ["8M", "7L41"],
 			amnesia: ["8M"],

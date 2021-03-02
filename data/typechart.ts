@@ -462,6 +462,7 @@ export const TypeChart: {[k: string]: TypeData} = {
 	},
 	Nuclear: {
 		damageTaken: {
+			radiation: 3,
 			Bug: 1,
 			Dark: 2,
 			Dragon: 0,
