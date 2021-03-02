@@ -341,7 +341,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["heatwave", "nastyplot", "protect", "scorchingsands", "solarbeam"],
 		randomDoubleBattleLevel: 84,
-		tier: "New",
+		tier: "(PU)",
 		doublesTier: "DUU",
 	},
 	ninetalesalola: {
@@ -391,7 +391,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["aromatherapy", "energyball", "pollenpuff", "sleeppowder", "sludgebomb", "strengthsap"],
 		randomDoubleBattleLevel: 88,
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	bellossom: {
@@ -494,7 +494,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	primeape: {
-		tier: "New",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	growlithe: {
 		tier: "LC",
@@ -739,8 +740,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	mukalola: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "UU",
 	},
 	shellder: {
 		tier: "LC",
@@ -1309,7 +1309,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["freezedry", "healbell", "hurricane", "icebeam", "roost", "toxic"],
 		randomDoubleBattleLevel: 88,
-		tier: "New",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	articunogalar: {
@@ -1633,7 +1633,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 90,
 		randomDoubleBattleMoves: ["glare", "headbutt", "protect", "rockslide"],
 		randomDoubleBattleLevel: 90,
-		tier: "(PU)",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	gligar: {
@@ -2506,7 +2506,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["closecombat", "knockoff", "protect", "suckerpunch", "swordsdance"],
 		randomDoubleBattleLevel: 88,
-		tier: "New",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	absolmega: {
@@ -2946,7 +2946,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 88,
 		randomDoubleBattleMoves: ["foulplay", "poltergeist", "protect", "snarl", "suckerpunch", "willowisp"],
 		randomDoubleBattleLevel: 88,
-		tier: "New",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	gible: {
@@ -3001,7 +3001,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["knockoff", "poisonjab", "protect", "rockslide", "taunt"],
 		randomDoubleBattleLevel: 88,
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	croagunk: {
@@ -3016,14 +3016,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	carnivine: {
-		tier: "New",
+		tier: "OU",
 	},
 	finneon: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
 	lumineon: {
-		tier: "New",
+		tier: "OU",
 	},
 	snover: {
 		tier: "LC",
@@ -4179,19 +4179,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	genesectburn: {
-		tier: "New",
+		tier: "Uber",
 		doublesTier: "(DOU)",
 	},
 	genesectchill: {
-		tier: "New",
+		tier: "Uber",
 		doublesTier: "(DOU)",
 	},
 	genesectdouse: {
-		tier: "New",
+		tier: "Uber",
 		doublesTier: "(DOU)",
 	},
 	genesectshock: {
-		tier: "New",
+		tier: "Uber",
 		doublesTier: "(DOU)",
 	},
 	chespin: {
@@ -5141,7 +5141,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["dragonpulse", "fireblast", "protect", "scorchingsands", "shellsmash"],
 		randomDoubleBattleLevel: 84,
-		tier: "New",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	togedemaru: {
@@ -5380,7 +5380,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 74,
 		randomDoubleBattleMoves: ["dracometeor", "flamethrower", "nastyplot", "sludgebomb", "uturn"],
 		randomDoubleBattleLevel: 76,
-		tier: "New",
+		tier: "Uber",
 		doublesTier: "DUU",
 	},
 	stakataka: {
@@ -6032,7 +6032,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 78,
 		randomDoubleBattleMoves: ["closecombat", "darkestlariat", "junglehealing", "powerwhip", "protect", "rockslide"],
 		randomDoubleBattleLevel: 80,
-		tier: "New",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	zarudedada: {
@@ -6078,7 +6078,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 90,
 		randomDoubleBattleMoves: ["encore", "helpinghand", "leafstorm", "pollenpuff", "protect"],
 		randomDoubleBattleLevel: 91,
-		tier: "New",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	calyrexice: {
