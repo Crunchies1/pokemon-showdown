@@ -19675,7 +19675,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	nuclearbreath: {
-		num: 617,
+		desc: "30% chance to either burn or poison the target, 20% recoil.",
+		shortDesc: "30% chance to either burn or poison the target, 20% recoil.",
+		num: 100002,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -19684,7 +19686,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		recoil: [1, 3],
+		recoil: [1, 5],
 		secondary: {
 			chance: 30,
 			onHit(target, source) {
@@ -19701,7 +19703,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	radiationburst: {
-		num: 617,
+		desc: "100% chance to either burn or poison the target, lowers all stats. 20% recoil.",
+		shortDesc: "100% chance to either burn or poison the target, lowers all stats. 20% recoil.",
+		num: 100003,
 		accuracy: 100,
 		basePower: 180,
 		category: "Special",
@@ -19719,7 +19723,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				spa: -1,
 			},
 		},
-		recoil: [1, 4],
+		recoil: [1, 5],
 		secondary: {
 			chance: 100,
 			onHit(target, source) {
@@ -19736,7 +19740,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	radiationbeam: {
-		num: 248,
+		desc: "Hits twice, once in one turn, and once in two turns. Will burn or poison enemy on use.",
+		shortDesc: "Hits twice, once in one turn, and once in two turns. Will burn or poison enemy on use.",
+		num: 100004,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -19790,7 +19796,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			onHit(target, source) {
-				const result = this.random(3);
+				const result = this.random(2);
 				if (result === 0) {
 					target.trySetStatus('brn', source);
 				} else {
