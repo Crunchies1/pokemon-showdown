@@ -19839,11 +19839,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		mindBlownRecoil: true,
-		onAfterMove(pokemon, target, move) {
-			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp * 2 / 5), pokemon, pokemon, this.dex.getEffect('Radioactive Decay - Alpha'), true);
-			}
+		onHit(target, source) {
+			this.directDamage(source.maxhp * 2 / 5, source, source);
 		},
 		onEffectiveness(typeMod, target, type) {
 			if ((type === 'Steel') || (type === 'Rock')) return 3;
@@ -19874,11 +19871,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		mindBlownRecoil: true,
-		onAfterMove(pokemon, target, move) {
-			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 4), pokemon, pokemon, this.dex.getEffect('Radioactive Decay - Beta'), true);
-			}
+		onHit(target, source) {
+			this.directDamage(source.maxhp / 4, source, source);
 		},
 		secondary: {
 			chance: 30,

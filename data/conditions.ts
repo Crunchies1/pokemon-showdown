@@ -912,7 +912,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('radiation')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.damage(target.baseMaxhp / 8);
+			this.damage(target.baseMaxhp / 12);
 		},
 		onEatItem(item, pokemon) {
 			this.add('-message', `The food is radioactive!`);

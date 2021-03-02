@@ -4543,6 +4543,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1008,
 	},
 	radiationrush: {
+		desc: "Speed is doubled in Radiation.",
+		shortDesc: "Speed is doubled in Radiation.",
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('radiation')) {
 				return this.chainModify(2);
@@ -4556,6 +4558,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1009,
 	},
 	nightstalker: {
+		desc: "Speed is doubled in Darkness.",
+		shortDesc: "Speed is doubled in Darkness.",
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('darkness')) {
 				return this.chainModify(2);
