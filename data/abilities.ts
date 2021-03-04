@@ -4595,4 +4595,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 5,
 		num: -1011,
 	},
+	pride: {
+		desc: "1.5x Atk and SpA buff and can't swap out when above 1/2 hp.",
+		shortDesc: "1.5x Atk and SpA buff and can't swap out when above 1/2 hp.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hp >= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.hp >= pokemon.maxhp / 2) {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceTrapPokemon(pokemon) {
+			if (pokemon.hp >= pokemon.maxhp / 2) {
+				pokemon.tryTrap(true);
+			} else {
+				return;
+			}
+		},
+		name: "Pride",
+		rating: 2,
+		num: -1012,
+	},
 };
